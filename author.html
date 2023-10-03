@@ -39,7 +39,31 @@
                 }
             }
         </script>
+        <div id="imageContainer">
+            <img id="cityImage" src="Vijayawada.jpg" alt="Vijayawada Image" width="100" height="100" onclick="selectImage()">
+        </div>
+        <script>
+            let useImage = 1;
+            function selectImage(){
+                const image = document.getElementById('cityImage');
+                switch (useImage){
+                    case 1:
+                        image.src = 'Mumbai.jpg';
+                        useImage = 2;
+                        break;
+                    case 2:
+                        image.src = 'Ellora.jpg';
+                        useImage = 3;
+                        break;
+                    case 3:
+                        image.src = 'Vijayawada.jpg';
+                        useImage = 1;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        </script>
     </body>
-    
     </html>
         
