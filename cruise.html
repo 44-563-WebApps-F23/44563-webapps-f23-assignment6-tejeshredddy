@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veeramreddy Tejeshreddy goes on a cruise</title>
 </head>
 <body>
@@ -12,7 +10,7 @@
         <label for="breakfast"><input type="checkbox" id="breakfast" value="True"> Breakfast</label><br>
         <label for="poolPass"><input type="checkbox" id="poolPass" value="False"> Pool Pass</label><br>
     </form>
-    <button onclick="selectCruise()">Select a cruise</button>
+    <input type="button" value="Select a cruise" onclick="selectCruise()">
     <div id="results"></div>
     <script>
         let my_cruise = {};
@@ -29,7 +27,7 @@
         <input type="text" id="daysInput"><br>
         <label for="priceInput">Enter price</label>
         <input type="text" id="priceInput"><br>
-        <button onclick="updateCruise()">Update the cruise</button>
+        <input type="button" value="Update the cruise" onclick="updateCruise()">
     </form>
     <script>
         function updateCruise() {
