@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veeramreddy Tejeshreddy shows tip amounts</title>
+</head>
+<body>
+    <h1>Veeramreddy TejeshReddy shows tip amounts</h1>
+    <label for="baseAmount">Enter base amount:</label>
+    <input type="number" id="baseAmount" value="50"><br>
+    <label for="tipPercent">Enter the tip percent:</label>
+    <input type="number" id="tipPercent" value="15"><br>
+    <button onclick="tips()">Show tip</button>
+    <div id="results"></div>
+    <script>
+        function tips() {
+            const baseValue = parseFloat(document.getElementById('baseAmount').value);
+            const tipValue = parseFloat(document.getElementById('tipPercent').value);
+            let myOutput = "";
+            for (let i = 0; i < 5; i++) {
+                const tipRate = tipValue + i * 4;
+                const calculatedTip = (baseValue * tipRate) / 100;
+                myOutput += `${tipRate}% is ${calculatedTip.toFixed(2)}; `;
+            }
+            document.getElementById('results').innerHTML = "Tips are: " + myOutput;
+        }
+    </script>
+    <form>
+        <label><input type="radio" name="operation" value="sum" onclick="chooseOp()"> sum</label><br>
+        <label><input type="radio" name="operation" value="difference" onclick="chooseOp()"> diff</label><br>
+        <label><input type="radio" name="operation" value="product" onclick="chooseOp()"> mult</label><br>
+    </form>
+    <div id="result"></div>
+    <script>
+        function chooseOp() {
+            const baseValue = parseFloat(document.getElementById('baseAmount').value);
+            const tipValue = parseFloat(document.getElementById('tipPercent').value);
+            const selectedOperation = document.querySelector('input[name="operation"]:checked');
+            if (selectedOperation) {
+                const operation = selectedOperation.value;
+                let resultText;
+                switch (operation) {
+                    case 'sum':
+                        resultText = `Sum of ${baseValue} and ${tipValue} is ${baseValue + tipValue}`;
+                        break;
+                    case 'difference':
+                        resultText = `Difference of ${baseValue} and ${tipValue} is ${baseValue - tipValue}`;
+                        break;
+                    case 'product':
+                        resultText = `Product of ${baseValue} and ${tipValue} is ${baseValue * tipValue}`;
+                        break;
+                    default:
+                        resultText = "Please select an operation.";
+                        break;
+                }
+                document.getElementById('result').textContent = resultText;
+            }
+        }
+    </script>
+</body>
+</html>
